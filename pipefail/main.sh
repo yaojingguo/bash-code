@@ -6,10 +6,10 @@ set -euo pipefail
 # echo "FINISH"
 
 Redirect() {
-  local vet=$(./tool.sh 1>&2)
-  echo $vet
+  local vet=$(./tool.sh 2>&1)
+  ! echo ":$vet" | grep -vE 'xxxx'
 }
-Redirect
+# Redirect
 
 # TestVet() {
 #   # solution 1
@@ -22,8 +22,15 @@ Redirect
 #   echo $vet
 #   # ! echo $vet | grep -vE 'xxxx'
 # }
-
 # TestVet
-output=$(eval 'Redirect') || exit_status=$?
-echo "exit_status: $exit_status"
+# output=$(eval 'Redirect') || exit_status=$?
+# echo "exit_status: $exit_status"
+# echo "output: $output"
+
+
+export -f 'Redirect' 
+echo "----------------"
+output=$(eval 'Redirect')
+echo "exit_status: $?"
+# echo "exit_status: $exit_status"
 echo "output: $output"
