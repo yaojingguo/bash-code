@@ -23,7 +23,7 @@ Redirect
 #   # ! echo $vet | grep -vE 'xxxx'
 # }
 
-# # TestVet
-# output=$(eval 'TestVet') || exit_status=$?
-# echo "exit_status: $exit_status"
-# echo "output: $output"
+# TestVet
+output=$(eval 'Redirect') || exit_status=$?
+echo "exit_status: $exit_status"
+echo "output: $output"
