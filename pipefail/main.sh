@@ -3,7 +3,10 @@
 set -euo pipefail
 
 TestVet() {
-  ! { ! ./tool; }  |& grep -vE 'xxxx' 
+  ! { ! ./tool.sh; }  |& grep -vE 'xxxx' 
+  # ! { ./tool.sh 2>&1 || true; } | grep -vE 'xxxx' 
+  # vet=$(./tool.sh || true)
+  # ! echo $vet | grep -vE 'xxxx'
 }
 
 # TestVet
