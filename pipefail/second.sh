@@ -2,13 +2,14 @@
 
 set -euo pipefail
 
-TestVet() {
+Test() {
   vet=$(./tool.sh 2>&1)
   ! echo "$vet" | grep -vE 'xxxx'
+  ! echo "line"
 }
 
-# TestVet
+# Test
 echo "------------------------------------------------"
-output=$(eval 'TestVet') || exit_status=$?
+output=$(eval 'Test') || exit_status=$?
 echo "exit_status: $exit_status"
 echo "output: $output"
