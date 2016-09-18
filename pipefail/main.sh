@@ -5,17 +5,18 @@ set -euo pipefail
 # ! ./tool.sh
 # echo "FINISH"
 
-vet=$(./tool.sh 2>&1 || true)
-echo "$vet" | grep -vE 'xxxx'
+# vet=$(./tool.sh 2>&1 || true)
+# echo "$vet" | grep -vE 'xxxx'
 
-# TestVet() {
-#   vet=$(./tool.sh 2>&1)
-#   ! echo $vet
-# }
-# TestVet
+TestVet() {
+  local vet=$(./tool.sh 2>&1 || true)
+  ! echo "$vet" | grep -vE 'xxxx'
+}
 
-# echo "------------------------------------------------"
-# output=$(eval 'TestVet') || true
+# TestVet || true
+
+echo "------------------------------------------------"
+output=$(eval 'TestVet') || exit_status=$?
 # echo "exit_status: $?"
 # # echo "exit_status: $exit_status"
-# echo "output: $output"
+echo "output: $output"
