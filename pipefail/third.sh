@@ -2,6 +2,9 @@
 
 set -euo pipefail
 
-vet=$(./tool.sh 2>&1)
-# echo "$vet" | grep -vE 'xxxx'
-echo "$vet"
+TestVet() {
+  local vet=$(./tool.sh 2>&1)
+  ! echo "$vet" | grep -vE 'xxxx'
+}
+
+TestVet
