@@ -3,7 +3,8 @@
 set -euo pipefail
 
 TestVet() {
-  vet=$(./tool.sh 2>&1)
+  # Does not work if local is removed
+  local vet=$(./tool.sh 2>&1)
   ! echo "$vet" | grep -vE 'xxxx'
 }
 
