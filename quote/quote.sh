@@ -2,6 +2,6 @@
 
 set -xeuo pipefail
 
-TAGS='opt bst'
+TAGS=''
 
 ./tool.sh "$TAGS"

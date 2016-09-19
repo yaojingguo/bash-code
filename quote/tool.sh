@@ -2,4 +2,4 @@
 
 set -xeuo pipefail
 
-go tool vet -tags $1 .
+go tool vet -tags "$1" .
