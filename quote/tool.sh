@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-echo "$1"
+set -xeuo pipefail
+
+go tool vet -tags $1 .
